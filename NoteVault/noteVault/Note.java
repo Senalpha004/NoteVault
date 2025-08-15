@@ -1,3 +1,4 @@
+package noteVault;
 
 //this class holds information for each note
 public class Note {
@@ -27,6 +28,6 @@ public class Note {
 
     @Override
     public String toString() {
-        return "Note Card " + title + "\n" + content;
+        return "noteVault.Note Card " + title + "\n" + content;
     }
 }
