@@ -23,7 +23,7 @@ public class NoteManager {
 
     //core methods of note vault (creating method classes for each function)
     //adding a note
-    private void addNote(Note note) {
+    public void addNote(Note note) {
         notes.add(note);
         saveNotesToFile();
     }
@@ -44,12 +44,15 @@ public class NoteManager {
     //delete notes by the title
     public boolean deleteNote(String title) {
         boolean removed = notes.removeIf(n -> n.getTitle().equalsIgnoreCase(title));
-        if (removed) saveNotesToFile();
+        if (removed) {
+            saveNotesToFile();
+            System.out.println("Note Deleted");
+        } else System.out.println("Note Not Found to Delete. Maybe Check Spellings");
         return removed;
     }
 
     //file handling of saving and loading notes
-    private void saveNotesToFile() {
+    public void saveNotesToFile() {
         try(FileWriter writer = new FileWriter(file)){
             gson.toJson(notes, writer);
         } catch (IOException e) {
@@ -57,7 +60,7 @@ public class NoteManager {
         }
     }
 
-    private void loadNotesFromFile(){
+    public void loadNotesFromFile(){
         if (!file.exists()) return;
 
         try (FileReader reader = new FileReader(file)){

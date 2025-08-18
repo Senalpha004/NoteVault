@@ -28,6 +28,6 @@ public class Note {
 
     @Override
     public String toString() {
-        return "noteVault.Note Card " + title + "\n" + content;
+        return "\n" + title + "\n" + content;
     }
 }
