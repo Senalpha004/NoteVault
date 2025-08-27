@@ -2,8 +2,6 @@ package noteVault;
 
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class NotevaultApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -20,7 +18,9 @@ public class NotevaultApp {
             System.out.println("2. View all Notes");
             System.out.println("3. Search Notes by a Keyword");
             System.out.println("4. Delete Note");
-            System.out.println("5. Exit");
+            System.out.println("5. View all notes from Oldest");
+            System.out.println("6. View all notes from Newest");
+            System.out.println("7. Exit");
 
             System.out.println("Your Choice? ");
             String choice = scanner.nextLine();
@@ -37,6 +37,7 @@ public class NotevaultApp {
 
                 case "2":
                     for (Note note : noteManager.getAllNotes()) {
+                        System.out.println("\n-------------------");
                         System.out.println(note);
                     }
                     break;
@@ -57,6 +58,14 @@ public class NotevaultApp {
                     break;
 
                 case "5":
+                    noteManager.viewOldest();
+                    break;
+
+                case "6":
+                    noteManager.viewNewest();
+                    break;
+
+                case "7":
                     System.out.println("Exiting the NoteVault...");
                     exit = true;
                     break;
